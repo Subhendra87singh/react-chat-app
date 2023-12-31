@@ -61,8 +61,8 @@ const Login = () => {
                         type='password' name='password' value={credential.password} onChange={onChange} placeholder='password' />
                 </div>
 
-                <button className='w-full my-2 py-2 bg-teal-500 shadow-lg shadow-teal-500/20 mt-4 rounded-sm'>Signup</button>
-                <p className='text-white'>You don't have account ? <Link to='/signup'>Signup</Link> </p>
+                <button className='w-full my-2 py-2 bg-teal-500 shadow-lg shadow-teal-500/20 mt-4 rounded-sm'>Sign In</button>
+                <p className='text-white'>You don't have account ? <Link to='/signup'>Sing In</Link> </p>
             </form>
         </div>
     )

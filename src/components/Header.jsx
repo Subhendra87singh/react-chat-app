@@ -22,7 +22,7 @@ export default function Header() {
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/contact">Contact</Link>
-                {!account.loginStatus ? <Link to="/login">Login</Link> : <p className='cursor-pointer' onClick={handleLogout}>LogOut</p>}
+                {!account.loginStatus ? <Link to="/login">Sign In</Link> : <p className='cursor-pointer' onClick={handleLogout}>LogOut</p>}
 
             </div>
         </div>
