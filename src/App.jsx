@@ -7,8 +7,8 @@ import Layout from './pages/Layout'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import app from '../firebase'
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../firebase'
 import { useDispatch } from 'react-redux';
 import { addLoginStatus, addUser } from './redux/slices/useSlice'
 import PrivateRoute from './routes/PrivateRoutes.jsx'
@@ -16,7 +16,7 @@ function App() {
   const [user, setUser] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
-    const auth = getAuth(app);
+
     onAuthStateChanged(auth, (user) => {
       console.log(user);
       if (user) {

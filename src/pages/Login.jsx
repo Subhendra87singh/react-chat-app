@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import app from './../../firebase.js'
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from './../../firebase.js'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../redux/slices/useSlice.js';
@@ -19,7 +19,6 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const auth = getAuth(app);
             const userCredential = await signInWithEmailAndPassword(auth, credential.email, credential.password);
             console.log(userCredential);
             setCredential({
@@ -62,7 +61,7 @@ const Login = () => {
                 </div>
 
                 <button className='w-full my-2 py-2 bg-teal-500 shadow-lg shadow-teal-500/20 mt-4 rounded-sm'>Sign In</button>
-                <p className='text-white'>You don't have account ? <Link to='/signup'>Sing In</Link> </p>
+                <p className='text-white'>You don't have account ? <Link to='/signup'>Sing Up</Link> </p>
             </form>
         </div>
     )

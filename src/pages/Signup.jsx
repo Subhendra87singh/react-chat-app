@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import app from './../../firebase.js'
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth, db } from './../../firebase.js'
 import { Link, useNavigate } from 'react-router-dom';
+import { collection, addDoc } from "firebase/firestore";
 const Signup = () => {
     const [credential, setCredential] = useState({
         name: '',
@@ -13,7 +14,6 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const auth = getAuth(app);
             if (credential.email == '' || credential.name == '' || credential.password == '') {
                 alert("Plaese fill all Fields!");
                 return;
@@ -24,6 +24,11 @@ const Signup = () => {
             await updateProfile(auth.currentUser, {
                 displayName: credential.name
             });
+            await addDoc(collection(db, "users"), {
+                displayName: user.displayName,
+                user_id: user.uid,
+            });
+
             setCredential({
                 name: '',
                 email: '',
@@ -70,7 +75,7 @@ const Signup = () => {
                 </div>
 
                 <button className='w-full my-2 py-2 bg-teal-500 shadow-lg shadow-teal-500/20 mt-4 rounded-sm'>Signup</button>
-                <p className='text-white'>You have already an account ? <Link to='/login'>Login</Link> </p>
+                <p className='text-white'>You have already an account ? <Link to='/login'>Sign In</Link> </p>
             </form>
         </div>
     )

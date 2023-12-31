@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { getAuth, signOut } from 'firebase/auth';
-import app from '../../firebase';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
     const navigate = useNavigate();
     const account = useSelector(state => state.account);
     const handleLogout = () => {
-        const auth = getAuth(app);
         signOut(auth);
         navigate('/');
     }
