@@ -14,7 +14,7 @@ export default function Header() {
     }
 
     return (
-        <div className='bg-gray-800 container py-4 '>
+        <div className='bg-gray-800 container-fluid py-4 '>
             <div className='flex justify-between  px-10'>
                 <Link to="/"><div className='text-xl font-bold text-white cursor-pointer'>LOGO</div></Link>
                 <p className='text-white'>{account.user?.displayName}</p>
