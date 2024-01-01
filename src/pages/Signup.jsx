@@ -37,20 +37,14 @@ const Signup = () => {
             navigate('/')
             console.log("user created successfully.");
         } catch (error) {
-            const errorCode = error.code;
+            // const errorCode = error.code;
             const errorMessage = error.message;
             alert(errorMessage);
         }
-
-
     }
-
     const onChange = (e) => {
         setCredential({ ...credential, [e.target.name]: e.target.value })
-
     }
-
-
     return (
         <div className=' h-96   justify-center '>
             <form onSubmit={handleSubmit} className='max-w-[400] w-1/2 mx-auto mt-4 bg-gray-900 p-8 px-8 rounded-lg'>

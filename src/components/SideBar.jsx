@@ -27,12 +27,12 @@ export default function SideBar() {
         dispach(addSelectedUser(user));
     };
     return (
-        <div className="w-1/4 bg-gray-200 p-4">
-            <h2 className="text-xl font-bold mb-4">Users</h2>
+        <div className="w-1/4 bg-gray-900 p-4">
+            <h2 className="text-xl font-bold m-4 text-white text-center" >Users</h2>
             <ul>
                 {userData.map((user) => (
-                    <li key={user.user_id} onClick={() => handleUserClick(user)} className={`cursor-pointer divide-y border-4 flex gap-2 p-2 ${user.user_id === selected && 'border-red-400'}`}>
-                        <div className='w-10 rounded-full text-center bg-orange-400 h-auto'>{user.displayName[0]}</div>
+                    <li key={user.user_id} onClick={() => handleUserClick(user)} className={`cursor-pointer border-2 rounded w-64 flex gap-2 p-2 text-white m-4 focus:outline-none ${user.user_id === selected && 'border-gray-400'}`}>
+                        <div className='w-8 rounded-full text-center text-black bg-gray-200 h-auto '>{user.displayName[0]}</div>
                         <p>{user.displayName}</p>
 
                     </li>

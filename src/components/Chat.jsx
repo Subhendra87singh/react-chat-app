@@ -47,11 +47,11 @@ export default function Chat() {
     }, [account.selectedUser, account.user]);
 
     return (
-        <div className="w-3/4 bg-white p-4">
-            <h2 className="text-xl font-bold mb-4">{account.selectedUser?.displayName}</h2>
+        <div className="w-3/4 bg-gray-500 p-4">
+            <h2 className="text-xl font-bold mb-4 text-white">{account.selectedUser?.displayName}</h2>
             <div className="mb-4" style={{ height: '300px', overflowY: 'auto' }}>
                 {messages.map((message, index) => (
-                    <div key={index} className={message.sender === account.user ? 'text-right' : 'text-left'}>
+                    <div key={index} className={message.sender === account.user ? 'text-right ' : 'text-left text-white '}>
                         {message.text}
                     </div>
                 ))}
@@ -61,9 +61,9 @@ export default function Chat() {
                     type="text"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
-                    className="flex-grow p-2 mr-2 border border-gray-300"
+                    className=" flex-grow p-2 mr-2 border-none rounded-lg bg-gray-400 focus:outline-none text-white"
                 />
-                <button onClick={() => handleSendMessage()} className="p-2 bg-blue-500 text-white">Send</button>
+                <button onClick={() => handleSendMessage()} className="p-2 bg-blue-500 text-white rounded">Send</button>
             </div>
         </div>
     )
