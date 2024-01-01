@@ -19,9 +19,9 @@ export default function Header() {
                 <Link to="/"><div className='text-xl font-bold text-white cursor-pointer'>LOGO</div></Link>
                 <p className='text-white'>{account.user?.displayName}</p>
                 <div className='flex gap-4 text-white'>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/">Chat Board</Link>
+                    {/* <Link to="/about">About</Link>
+                    <Link to="/contact">Contact</Link> */}
                     {!account.loginStatus ? <Link to="/login">Sign In</Link> : <p className='cursor-pointer' onClick={handleLogout}>LogOut</p>}
 
                 </div>

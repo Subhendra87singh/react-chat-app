@@ -8,10 +8,10 @@ const Home = () => {
     const account = useSelector((state) => state.account.user);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        console.log("===account", account);
+    // useEffect(() => {
+    //     console.log("===account", account);
 
-    }, []);
+    // }, []);
 
     return (
         <div className="flex h-full">

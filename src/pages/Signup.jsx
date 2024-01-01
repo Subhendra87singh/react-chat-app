@@ -34,8 +34,9 @@ const Signup = () => {
                 email: '',
                 password: ''
             });
+            alert("user created successfully.");
             navigate('/')
-            console.log("user created successfully.");
+
         } catch (error) {
             // const errorCode = error.code;
             const errorMessage = error.message;
