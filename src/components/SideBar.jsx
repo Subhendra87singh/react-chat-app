@@ -6,15 +6,16 @@ import { addSelectedUser } from './../redux/slices/useSlice';
 
 export default function SideBar() {
     const [userData, setUserData] = useState([]);
+    const [selected, setSelected] = useState(null);
     const dispach = useDispatch();
     useEffect(() => {
         ; (async () => {
             const querySnapshot = await getDocs(collection(db, "users"));
             let datArr = [];
             querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data().displayName}`);
                 datArr = [...datArr, { user_id: doc.data().user_id, displayName: doc.data().displayName }]
             });
+
             setUserData(datArr);
 
         })()
@@ -22,6 +23,7 @@ export default function SideBar() {
     }, [])
 
     const handleUserClick = (user) => {
+        setSelected(user.user_id);
         dispach(addSelectedUser(user));
     };
     return (
@@ -29,8 +31,10 @@ export default function SideBar() {
             <h2 className="text-xl font-bold mb-4">Users</h2>
             <ul>
                 {userData.map((user) => (
-                    <li key={user.user_id} onClick={() => handleUserClick(user)} className="cursor-pointer divide-x">
-                        {user.displayName}
+                    <li key={user.user_id} onClick={() => handleUserClick(user)} className={`cursor-pointer divide-y border-4 flex gap-2 p-2 ${user.user_id === selected && 'border-red-400'}`}>
+                        <div className='w-10 rounded-full text-center bg-orange-400 h-auto'>{user.displayName[0]}</div>
+                        <p>{user.displayName}</p>
+
                     </li>
                 ))}
             </ul>
