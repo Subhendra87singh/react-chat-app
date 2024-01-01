@@ -14,16 +14,19 @@ export default function Header() {
     }
 
     return (
-        <div className='bg-gray-800 container py-4 flex justify-between  px-10'>
-            <Link to="/"><div className='text-xl font-bold text-white cursor-pointer'>LOGO</div></Link>
-            <p className='text-white'>{account.user?.displayName}</p>
-            <div className='flex gap-4 text-white'>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/contact">Contact</Link>
-                {!account.loginStatus ? <Link to="/login">Sign In</Link> : <p className='cursor-pointer' onClick={handleLogout}>LogOut</p>}
+        <div className='bg-gray-800 container py-4 '>
+            <div className='flex justify-between  px-10'>
+                <Link to="/"><div className='text-xl font-bold text-white cursor-pointer'>LOGO</div></Link>
+                <p className='text-white'>{account.user?.displayName}</p>
+                <div className='flex gap-4 text-white'>
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/contact">Contact</Link>
+                    {!account.loginStatus ? <Link to="/login">Sign In</Link> : <p className='cursor-pointer' onClick={handleLogout}>LogOut</p>}
 
+                </div>
             </div>
+
         </div>
     )
 }

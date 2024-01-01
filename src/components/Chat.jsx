@@ -59,12 +59,9 @@ export default function Chat() {
     return (
         <div className="w-3/4 bg-gray-500 p-4">
             <h2 className="text-xl font-bold mb-4 text-white">{account.selectedUser?.displayName}</h2>
-            <div ref={chatContainerRef} className="mb-4 " style={{ height: "565px", overflowY: 'auto', display: 'flex', flexDirection: 'column-reverse' }}>
+            <div ref={chatContainerRef} className="mb-4" style={{ height: '565px', overflowY: 'auto' }}>
                 {messages.map((message, index) => (
-                    <div
-                        key={index}
-                        className={`${message.sender === account.user.uid ? 'ml-auto bg-gray-800' : 'mr-auto bg-green-800'} space-x-2 font-sans font-bold w-full max-w-[320px] leading-1.5 p-2 text-gray-200 m-4 rounded-e-xl rounded-es-xl `}
-                    >
+                    <div key={index} className={`${message.sender === account.user.uid ? 'ml-auto bg-gray-800' : 'mr-auto bg-green-800'} space-x-2 font-sans font-bold flex flex-col w-full max-w-[320px] leading-1.5 p-2 text-gray-200 m-4 rounded-e-xl rounded-es-xl `}>
                         <div className="text-xs text-gray-400">{formatTimestamp(message.timestamp)}</div>
                         <div>{message.text}</div>
                     </div>
@@ -75,9 +72,9 @@ export default function Chat() {
                     type="text"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
-                    className="flex-grow p-2 mr-2  border-none rounded-lg bg-gray-400 focus:outline-none text-white"
+                    className="flex-grow p-2 mr-2 border-none rounded-lg bg-gray-400 focus:outline-none text-white"
                 />
-                <button onClick={() => handleSendMessage()} className="p-2  bg-gray-900 text-white rounded flex">Send</button>
+                <button onClick={() => handleSendMessage()} className="p-2 bg-gray-900 text-white rounded flex">Send</button>
             </div>
         </div>
     );
